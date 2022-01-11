@@ -1,0 +1,23 @@
+{
+  "NoteType": {
+    "id": "164...",
+    "name": "Japanese",
+    "type": 0,
+    "mod": 1641850888,
+    "usn": 0,
+    "sortf": 1,
+    "did": null,
+    "tmpls": [
+      {
+        "name": "JapEng",
+        "ord": 0,
+        "qfmt": "WHOLE CARD TEMPLATE TEXT"
+      },
+      {
+        "name": "EngJap",
+        "ord": 1,
+        "qfmt": "WHOLE CARD TEMPLATE TEXT"
+      }
+    ]
+  }
+}

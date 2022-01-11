@@ -1,0 +1,19 @@
+{
+  "noteTypes": [
+    "Japanese::Kanji"
+  ],
+  "srcFields": [
+    "kanji"
+  ],
+  "dstMapping": {
+    "kunyomi": "kun_yomi",
+    "onyomi": "on_yomi",
+    "english": "meanings",
+    "jlpt": "jlpt",
+    "grade": "grade",
+    "strokeCount": "stroke_count"
+  },
+  "skipTags": [
+    "skip_kanji"
+  ]
+}
