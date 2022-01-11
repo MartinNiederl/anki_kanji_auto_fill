@@ -2,6 +2,7 @@ from typing import Tuple, Union, List
 
 from anki import notes
 from anki.models import NoteType
+from anki.utils import stripHTML
 from aqt import gui_hooks, mw
 from aqt.editor import Editor
 from aqt.utils import showInfo
@@ -21,7 +22,7 @@ def is_valid_note_type(note: notes.Note):
 
 def is_valid_field(note: notes.Note, current_field_idx: int):
     current_field_name: str = note.keys()[current_field_idx]
-    return current_field_name in config.srcFields
+    return current_field_name == config.field_kanji
 
 
 def do_not_skip(note: notes.Note):
@@ -35,6 +36,10 @@ def unfocused_field(changed: bool, note: notes.Note, current_field_idx: int):
     current_field: Tuple[str, str] = note.items()[current_field_idx]
 
     kanji: str = current_field[1]
+    if not kanji:
+        return
+
+    kanji = stripHTML(kanji)
     kanji_data = KanjiAPI().get_kanji(kanji)
     # kanji_data = get_kanji_data(current_field[1]) # slow and error prone, deprecated
     if kanji_data is None:
@@ -58,8 +63,9 @@ def add_tags_to_note(note: notes.Note, tags: List[str]):
 
 
 def populate_note_fields(note: notes.Note, kanji_details: KanjiData):
-    try_set_field(note, config.field_kunyomi, '、'.join(kanji_details.kun_yomi))
-    try_set_field(note, config.field_onyomi, '、'.join(kanji_details.on_yomi))
+    try_set_field(note, config.field_kanji, kanji_details.kanji)
+    try_set_field(note, config.field_kun_yomi, '、'.join(kanji_details.kun_yomi))
+    try_set_field(note, config.field_on_yomi, '、'.join(kanji_details.on_yomi))
     try_set_field(note, config.field_english, ', '.join(kanji_details.meanings))
     try_set_field(note, config.field_jlpt, kanji_details.jlpt)
     try_set_field(note, config.field_grade, kanji_details.grade)

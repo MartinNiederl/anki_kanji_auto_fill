@@ -2,9 +2,7 @@
   "noteTypes": [
     "Japanese::Kanji"
   ],
-  "srcFields": [
-    "kanji"
-  ],
+  "srcField": "kanji",
   "dstMapping": {
     "kunyomi": "kun_yomi",
     "onyomi": "on_yomi",
