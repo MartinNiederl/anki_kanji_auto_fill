@@ -12,6 +12,7 @@ CONFIG_DST_MAPPING_FIELD_JLPT = 'jlpt'
 CONFIG_DST_MAPPING_FIELD_GRADE = 'grade'
 CONFIG_DST_MAPPING_FIELD_STROKE_COUNT = 'stroke_count'
 CONFIG_SKIP_TAGS = 'skipTags'
+CONFIG_ADD_TAGS = 'addTags'
 
 
 class ConfigWrapper:
@@ -21,7 +22,8 @@ class ConfigWrapper:
 
         self.noteTypes = self.config.get(CONFIG_NOTE_TYPES, ['Japanese::Kanji'])
         self.srcFields = self.config.get(CONFIG_SRC_FIELDS, ['Kanji'])
-        self.skipTags = self.config.get(CONFIG_SKIP_TAGS, ['skip_kanji'])
+        self.skipTags = self.config.get(CONFIG_SKIP_TAGS, ['kanji_skip'])
+        self.addTags = self.config.get(CONFIG_ADD_TAGS, ['kanji_auto_filled'])
 
         if self.config.get(CONFIG_DST_MAPPING) is not None:
             dst_mapping = self.config.get(CONFIG_DST_MAPPING)

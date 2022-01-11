@@ -14,6 +14,9 @@
     "strokeCount": "stroke_count"
   },
   "skipTags": [
-    "skip_kanji"
+    "kanji_skip"
+  ],
+  "addTags": [
+    "kanji_auto_filled"
   ]
 }

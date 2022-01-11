@@ -1,4 +1,4 @@
-from typing import Tuple, Union
+from typing import Tuple, Union, List
 
 from anki import notes
 from anki.models import NoteType
@@ -41,6 +41,7 @@ def unfocused_field(changed: bool, note: notes.Note, current_field_idx: int):
         return
 
     populate_note_fields(note, kanji_data)
+    add_tags_to_note(note, config.addTags)
     refresh_current_view()
 
 
@@ -48,6 +49,12 @@ def refresh_current_view():
     if hasattr(mw.app.activeWindow(), 'editor'):
         editor: Editor = mw.app.activeWindow().editor
         editor.loadNote()
+
+
+def add_tags_to_note(note: notes.Note, tags: List[str]):
+    if tags:
+        for tag in tags:
+            note.add_tag(tag)
 
 
 def populate_note_fields(note: notes.Note, kanji_details: KanjiData):
