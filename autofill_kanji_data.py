@@ -20,10 +20,10 @@ def unfocused_field_hook(changed: bool, note: notes.Note, current_field_idx: int
     current_field: Tuple[str, str] = note.items()[current_field_idx]
 
     char: str = current_field[1]
+    char = stripHTML(char)
     if not char or not is_potential_kanji(char):
         return
 
-    char = stripHTML(char)
     kanji_data: KanjiData = KanjiAPI().get_kanji(char)
     if kanji_data is None:
         return

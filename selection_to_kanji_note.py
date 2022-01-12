@@ -16,7 +16,6 @@ def will_show_context_hook(editor_webview: EditorWebView, menu: QMenu):
         return
 
     potential_kanji_s = extract_potential_kanji(selected_text)
-    # showInfo(str(potential_kanji_s))
     if not potential_kanji_s:
         return
 
