@@ -12,9 +12,11 @@
     "strokeCount": "stroke_count"
   },
   "skipTags": [
-    "kanji_skip"
+    "kanji_skip",
+    "kanji_auto_filled"
   ],
   "addTags": [
     "kanji_auto_filled"
-  ]
+  ],
+  "targetDeck": "Japanese::Duolingo::Kanji"
 }
