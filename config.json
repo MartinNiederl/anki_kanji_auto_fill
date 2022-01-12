@@ -18,5 +18,7 @@
   "addTags": [
     "kanji_auto_filled"
   ],
-  "targetDeck": "Japanese::Duolingo::Kanji"
+  "targetDeck": "Japanese::Duolingo::Kanji",
+  "targetNoteType": "Japanese::Kanji",
+  "targetTag": "auto_created"
 }
